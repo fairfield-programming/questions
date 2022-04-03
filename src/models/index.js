@@ -50,5 +50,6 @@ global.Answer = Answer(sequelize, DataTypes);
 
 // Setup Relationships
 global.Question.hasMany(global.Answer);
+global.Answer.belongsTo(global.Question);
 
 global.sequelize = sequelize;

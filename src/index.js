@@ -14,11 +14,10 @@ app.use(express.json());
 app.use(require("cors")({ origin: "https://fairfieldprogramming.org" }));
 
 // Endpoints
-app.get("/", (req, res) => {
+app.get("/", require('./routes/index'));
 
-  res.redirect('https://fairfieldprogramming.org/')
-
-});
+app.get("/question/:id/", require('./routes/question/id'));
+app.get("/answer/:id/", require('./routes/answer/id'));
 
 // Sync the Database
 (async () => {
