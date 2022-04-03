@@ -2,13 +2,9 @@ module.exports = (req, res) => {
 
     if (req.params.id == undefined) return res.status(400).json({ error: "Not All Parameters Provided." });
 
-    Answer.findOne({
-        where: {
-            id: req.params.id
-        }
-    }).then(function (data) {
+    Question.findMany({
 
-        if (data == null) return res.status(404).json({ error: "Answer Not Found." });
+    }).then(function (data) {
 
         return res.status(200).json(data);
 

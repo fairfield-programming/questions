@@ -17,6 +17,10 @@ app.use(require("cors")({ origin: "https://fairfieldprogramming.org" }));
 app.get("/", require('./routes/index'));
 
 app.get("/question/:id/", require('./routes/question/id'));
+app.post("/question/:id/answer", require('./routes/answer/create'));
+app.get("/question/:id/related", require('./routes/question/related'));
+app.post("/question/post", require('./routes/question/create'));
+
 app.get("/answer/:id/", require('./routes/answer/id'));
 
 // Sync the Database
