@@ -23,6 +23,9 @@ app.post("/question/post", require('./routes/question/create'));
 
 app.get("/answer/:id/", require('./routes/answer/id'));
 
+app.get("/user/:id/questions", require('./routes/user/questions'));
+app.get("/user/:id/answers", require('./routes/user/answers'));
+
 // Sync the Database
 (async () => {
 
