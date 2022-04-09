@@ -11,7 +11,7 @@ const port = process.env.PORT || 8080;
 
 // Configure Middleware
 app.use(express.json());
-app.use(require("cors")({ origin: "https://fairfieldprogramming.org" }));
+app.use(require("cors")({ origin: "*" }));
 
 // Endpoints
 app.get("/", require('./routes/index'));

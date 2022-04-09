@@ -1,0 +1,270 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Fairfield Programming Association",
+		"description": "The Fairfield Programming Association is a league of schools in the south-eastern Connecticut area that focuses on teaching students important lessons in programming.",
+		"termsOfService": "https://fairfieldprogramming.org/terms",
+		"contact": {
+			"name": "Fairfield Programming Association",
+			"url": "https://fairfieldprogramming.org/support",
+			"email": "support@fairfieldprogramming.org"
+		},
+		"license": {
+			"name": "UNLICENSED",
+			"url": ""
+		},
+		"servers": [
+			{
+				"description": "Development Server",
+				"url": "http://localhost:8000/"
+			},
+			{
+				"description": "Production Server",
+				"url": "https://fairfieldprogramming.org/"
+			}
+		],
+		"version": "1.0.0"
+	},
+	"paths": {
+		"/user/:id": {
+			"get": {
+				"description": "Use this endpoint to get the user data specified with the 'id' parameter.",
+				"responses": {
+					"200": {
+						"description": "The user data was found and sent to the client.",
+						"content": {
+							"application/json": {}
+						}
+					},
+					"400": {
+						"description": "The client did not provide data for the 'id' parameter, or they provided the data incorrectly.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Bad Request."
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Could not find the user data associated with the 'id' parameter.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Not Found."
+								}
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "The numberic identifier of the user data.",
+						"schema": {
+							"type": "integer",
+							"example": 1
+						}
+					}
+				]
+			},
+			"delete": {
+				"description": "Use this endpoint to delete the user data specified with the 'id' parameter.",
+				"responses": {},
+				"parameters": []
+			}
+		},
+		"/user/:id/edit": {
+			"patch": {
+				"description": "Use this endpoint to update the user data specified with the 'id' parameter.",
+				"responses": {
+					"200": {
+						"description": "The updated user data.",
+						"content": {
+							"application/json": {}
+						}
+					},
+					"400": {
+						"description": "The client did not provide data for the 'id' parameter, or they provided the data incorrectly.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Bad Request."
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Could not find the user data associated with the 'id' parameter.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Not Found."
+								}
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "The numberic identifier of the user data.",
+						"schema": {
+							"type": "integer",
+							"example": 1
+						}
+					}
+				]
+			}
+		},
+		"/teacher/:id": {
+			"get": {
+				"description": "Use this endpoint to get the teacher data specified with the 'id' parameter.",
+				"responses": {
+					"200": {
+						"description": "The teacher data was found and sent to the client.",
+						"content": {
+							"application/json": {}
+						}
+					},
+					"400": {
+						"description": "The client did not provide data for the 'id' parameter, or they provided the data incorrectly.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Bad Request."
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Could not find the teacher data associated with the 'id' parameter.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Not Found."
+								}
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "The numberic identifier of the teacher data.",
+						"schema": {
+							"type": "integer",
+							"example": 1
+						}
+					}
+				]
+			}
+		},
+		"/course/:id": {
+			"get": {
+				"description": "Use this endpoint to get the course data specified with the 'id' parameter.",
+				"responses": {
+					"200": {
+						"description": "The course data was found and sent to the client.",
+						"content": {
+							"application/json": {}
+						}
+					},
+					"400": {
+						"description": "The client did not provide data for the 'id' parameter, or they provided the data incorrectly.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Bad Request."
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Could not find the course data associated with the 'id' parameter.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Not Found."
+								}
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "The numberic identifier of the course data.",
+						"schema": {
+							"type": "integer",
+							"example": 1
+						}
+					}
+				]
+			}
+		},
+		"/article/:id": {
+			"get": {
+				"description": "Use this endpoint to get the article data specified with the 'id' parameter.",
+				"responses": {
+					"200": {
+						"description": "The article data was found and sent to the client.",
+						"content": {
+							"application/json": {}
+						}
+					},
+					"400": {
+						"description": "The client did not provide data for the 'id' parameter, or they provided the data incorrectly.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Bad Request."
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Could not find the article data associated with the 'id' parameter.",
+						"content": {
+							"text/plain": {
+								"schema": {
+									"type": "string",
+									"example": "Not Found."
+								}
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "The numberic identifier of the article data.",
+						"schema": {
+							"type": "integer",
+							"example": 1
+						}
+					}
+				]
+			}
+		}
+	}
+}
