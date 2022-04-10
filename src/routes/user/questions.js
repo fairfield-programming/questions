@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     Question.findAll({
         attributes: [ 'id', 'title', 'body', 'user', [sequelize.fn('count', sequelize.col('Answer.id')), 'answers'] ],
         include: [{ attributes: [], model: Answer }],
-        group: ['question.id'],
+        group: ['Question.id'],
         where: {
             user: req.params.id
         }
