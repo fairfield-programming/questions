@@ -1,9 +1,7 @@
 module.exports = (sequelize, DataTypes) => sequelize.define(
-    'Question',
+    'Comment',
     {
-      title: DataTypes.TEXT,
       body: DataTypes.TEXT,
       user: DataTypes.INTEGER
     },
   );
-  
