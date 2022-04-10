@@ -5,10 +5,10 @@ module.exports = (req, res) => {
     Question.findAll({
         attributes: [
             { 
-                include: [[Sequelize.fn('COUNT', Sequelize.col('Comment.questionId')), 'comments']] 
+                include: [[Sequelize.fn('COUNT', Sequelize.col('Comment.id')), 'comments']] 
             },
             { 
-                include: [[Sequelize.fn('COUNT', Sequelize.col('Answer.questionId')), 'answers']] 
+                include: [[Sequelize.fn('COUNT', Sequelize.col('Answer.id')), 'answers']] 
             }
         ],
         include: [{
@@ -16,7 +16,7 @@ module.exports = (req, res) => {
         }, {
             model: Answer
         }],
-        group: ['Comment.questionId', 'Answer.questionId'],
+        group: ['Comment.id', 'Answer.id'],
         where: {
             user: req.params.id
         }
