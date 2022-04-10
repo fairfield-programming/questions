@@ -12,7 +12,6 @@ module.exports = (req, res) => {
         }],
         group: ['Question.id'],
         
-        // raw: true,
         where: sequelize.literal('"Answers"."QuestionId" IS NULL')
         
     }).then(function (data) {
