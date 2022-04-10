@@ -12,9 +12,9 @@ module.exports = (req, res) => {
             }
         ],
         include: [{
-            model: Comment, attributes: []
+            model: Comment
         }, {
-            model: Answer, attributes: []
+            model: Answer
         }],
         group: ['Comment.questionId', 'Answer.questionId'],
         where: {
