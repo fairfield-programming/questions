@@ -13,17 +13,6 @@ module.exports = (req, res) => {
         
         return res.status(200).json(data);
 
-        // data.getAnswers().then(function (answers) {
-
-        //     return res.status(200).json({ ...data.dataValues, answers });
-
-        // }).catch(function (error) {
-
-        //     console.log(error);
-        //     return res.status(500).json({ error: "Internal Server Error." });
-
-        // });
-
     }).catch(function (error) {
 
         console.log(error);
