@@ -4,9 +4,6 @@ module.exports = (req, res) => {
 
     Question.findAll({
         attributes: [
-            'id',
-            'title',
-            'body',
             { 
                 include: [[Sequelize.fn('COUNT', Sequelize.col('Comment.questionId')), 'comments']] 
             },
@@ -15,9 +12,9 @@ module.exports = (req, res) => {
             }
         ],
         include: [{
-            model: Answer, attributes: []
-        }, {
             model: Comment, attributes: []
+        }, {
+            model: Answer, attributes: []
         }],
         group: ['Comment.questionId', 'Answer.questionId'],
         where: {
