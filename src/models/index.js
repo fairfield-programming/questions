@@ -61,3 +61,4 @@ global.Answer.hasMany(global.Comment);
 global.Comment.belongsTo(global.Answer);
 
 global.sequelize = sequelize;
+global.Sequelize = Sequelize;
