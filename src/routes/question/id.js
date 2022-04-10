@@ -5,21 +5,24 @@ module.exports = (req, res) => {
     Question.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: Answer
     }).then(function (data) {
 
         if (data == null) return res.status(404).json({ error: "Question Not Found." });
         
-        data.getAnswers().then(function (answers) {
+        return res.status(200).json(data);
 
-            return res.status(200).json({ ...data.dataValues, answers });
+        // data.getAnswers().then(function (answers) {
 
-        }).catch(function (error) {
+        //     return res.status(200).json({ ...data.dataValues, answers });
 
-            console.log(error);
-            return res.status(500).json({ error: "Internal Server Error." });
+        // }).catch(function (error) {
 
-        });
+        //     console.log(error);
+        //     return res.status(500).json({ error: "Internal Server Error." });
+
+        // });
 
     }).catch(function (error) {
 
