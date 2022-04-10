@@ -3,8 +3,13 @@ module.exports = (req, res) => {
     if (req.params.id == undefined) return res.status(400).json({ error: "Not All Parameters Provided." });
 
     Question.findAll({
-        include: [{ as: 'Answer', model: Answer, attributes: [], /* required: true, duplicating: false */ }],
-        attributes: [ 'id', 'title', 'body', 'user', [sequelize.fn('count', sequelize.col('Answer.id')), 'total'] ],
+
+        attributes: { 
+            include: [[Sequelize.fn("COUNT", Sequelize.col("Answers.id")), "answers"]] 
+        },
+        include: [{
+            model: Answer, attributes: []
+        }],
         group: ['Question.id'],
 
         where: {

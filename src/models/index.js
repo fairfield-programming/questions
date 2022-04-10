@@ -16,6 +16,8 @@ let env = process.env.NODE_ENV || "development";
 // Second Check
 if (!process.env.DATABASE_URL) env = "development";
 
+console.log(env);
+
 if (env === "development") {
   sequelize = new Sequelize(
     "sqlite::memory:",
