@@ -19,6 +19,7 @@ module.exports = (req, res) => {
         }, {
             model: Comment, attributes: []
         }],
+        group: ['Comment.questionId', 'Answer.questionId'],
         where: {
             user: req.params.id
         }
