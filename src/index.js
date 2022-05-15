@@ -5,6 +5,9 @@ const express = require('express');
 const { Sequelize } = require('sequelize');
 const models = require('./models');
 
+// Require Middleware
+const verifyLogin = require('../middleware/verifyLogin.js');
+
 // Configure Local Variables
 const app = express();
 const port = process.env.PORT || 8080;
@@ -24,7 +27,7 @@ app.get("/question/:id/", require('./routes/question/id'));
 app.post("/question/:id/answer", require('./routes/answer/create'));
 app.get("/question/:id/related", require('./routes/question/related'));
 
-app.post("/question/post", require('./routes/question/create'));
+app.post("/question/post", verifyLogin, require('./routes/question/create'));
 
 app.get("/answer/:id/", require('./routes/answer/id'));
 
