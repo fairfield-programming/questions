@@ -1,11 +1,10 @@
 module.exports = (req, res) => {
 
-    if (req.body.user == undefined) return res.status(400).json({ error: "Not All Body Items Provided." });
     if (req.body.title == undefined) return res.status(400).json({ error: "Not All Body Items Provided." });
     if (req.body.body == undefined) return res.status(400).json({ error: "Not All Body Items Provided." });
 
     Question.create({
-        user: req.body.user,
+        user: req.user.id,
         title: req.body.title,
         body: req.body.body
     }).then(function (answerData) {
