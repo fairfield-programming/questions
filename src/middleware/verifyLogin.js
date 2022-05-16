@@ -32,7 +32,7 @@ module.exports = (req, res, next) => {
 
   } catch (err) {
     console.log(err.message);
-    return res.redirect('/login');
+    return res.redirect('https://fairfieldprogramming.org/login');
   }
 
 };
