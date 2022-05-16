@@ -1,6 +1,5 @@
 const { verify } = require('jsonwebtoken');
 
-
 /**
  * @module VERIFY LOGIN
  * 
@@ -13,8 +12,7 @@ const { verify } = require('jsonwebtoken');
  * @description
  *  Verfies if the user is logged in, otherwise redirect to "/user/login"
  */
-
-module.exports.verifyLogin = (req, res, next) => {
+module.exports = (req, res, next) => {
 
   try {
 
