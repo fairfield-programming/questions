@@ -6,7 +6,7 @@ const { Sequelize } = require('sequelize');
 const models = require('./models');
 
 // Require Middleware
-const verifyLogin = require('../middleware/verifyLogin.js');
+const verifyLogin = require('./middleware/verifyLogin.js');
 
 // Configure Local Variables
 const app = express();
