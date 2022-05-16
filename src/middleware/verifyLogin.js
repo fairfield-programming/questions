@@ -14,9 +14,13 @@ const { verify } = require('jsonwebtoken');
  */
 module.exports = (req, res, next) => {
 
+  let bearer = req.header('Authorization');
+  let bearerParts = bearer.split(" ") || [];
+  let token = bearerParts[1] || "";
+
   try {
 
-    verify(req.cookies.token, process.env.JWT_KEY, (err, userData) => {
+    verify(token, process.env.JWT_KEY, (err, userData) => {
 
       if (err || !userData) {
         return res.status(400).send({ msg: 'Error on verifying user login.' });
