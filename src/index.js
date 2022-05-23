@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+console.log(process.env.DATABASE_URL);
+
 // Configure Imports
 const express = require('express');
 const { Sequelize } = require('sequelize');
