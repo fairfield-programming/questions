@@ -6,5 +6,8 @@ sudo cp /opt/bitnami/apache/conf/vhosts/sample-https-vhost.conf.disabled /opt/bi
 
 sudo /opt/bitnami/ctlscript.sh restart apache
 
+sudo nano ./.env;
+cp ./.env ./src/.env
+
 sudo systemctl daemon-reload;
 sudo systemctl start server;
