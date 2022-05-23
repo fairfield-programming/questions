@@ -30,14 +30,18 @@ if (env === "development") {
     process.env.DATABASE_URL,
     {
       logging: false,
-      dialectOptions:
-      {
+      dialectOptions: {
         ssl:
         {
           require: true,
           rejectUnauthorized: false,
         },
       },
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      }
     },
   );
 }

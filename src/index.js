@@ -5,7 +5,7 @@ console.log(process.env.DATABASE_URL);
 // Configure Imports
 const express = require('express');
 const { Sequelize } = require('sequelize');
-const models = require('./models');
+require('./models');
 
 // Require Middleware
 const verifyLogin = require('./middleware/verifyLogin.js');
