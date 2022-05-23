@@ -1,0 +1,5 @@
+cd backend-server;
+npm install;
+cp ./server.service /etc/systemd/system/server.service;
+sudo systemctl daemon-reload;
+sudo systemctl start server;

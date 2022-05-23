@@ -1,0 +1,13 @@
+[Unit]
+Description=FPA Questions Server
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+User=bitnami
+WorkingDirectory=/home/bitnami/questions/
+ExecStart=/opt/bitnami/node/bin/node /home/bitnami/questions/src/index.js
+
+[Install]
+WantedBy=multi-user.target
