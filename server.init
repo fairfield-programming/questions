@@ -1,4 +1,10 @@
 npm install;
 sudo cp ./server.service /etc/systemd/system/server.service;
+
+sudo cp /opt/bitnami/apache/conf/vhosts/sample-vhost.conf.disabled /opt/bitnami/apache/conf/vhosts/sample-vhost.conf
+sudo cp /opt/bitnami/apache/conf/vhosts/sample-https-vhost.conf.disabled /opt/bitnami/apache/conf/vhosts/sample-https-vhost.conf
+
+sudo /opt/bitnami/ctlscript.sh restart apache
+
 sudo systemctl daemon-reload;
 sudo systemctl start server;
