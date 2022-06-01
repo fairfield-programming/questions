@@ -26,7 +26,7 @@ app.get("/question/recent", require('./routes/question/recent'));
 app.get("/question/unanswered", require('./routes/question/unanswered'));
 
 app.get("/question/:id/", require('./routes/question/id'));
-app.post("/question/:id/answer", require('./routes/answer/create'));
+app.post("/question/:id/answer", verifyLogin, require('./routes/answer/create'));
 app.get("/question/:id/related", require('./routes/question/related'));
 
 app.post("/question/post", verifyLogin, require('./routes/question/create'));

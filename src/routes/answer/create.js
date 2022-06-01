@@ -2,7 +2,6 @@ module.exports = (req, res) => {
 
     if (req.params.id == undefined) return res.status(400).json({ error: "Not All Parameters Provided." });
 
-    if (req.body.user == undefined) return res.status(400).json({ error: "Not All Body Items Provided." });
     if (req.body.text == undefined) return res.status(400).json({ error: "Not All Body Items Provided." });
 
     Question.findOne({
@@ -14,7 +13,7 @@ module.exports = (req, res) => {
         if (data == null) return res.status(404).json({ error: "Question Not Found." });
 
         data.createAnswer({
-            user: req.body.user,
+            user: req.user.id,
             body: req.body.text
         }).then(function (answerData) {
 
